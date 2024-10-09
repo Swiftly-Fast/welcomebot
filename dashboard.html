@@ -3,35 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <meta name="description" content="Manage your Discord bot settings.">
+    <title>Discord Bot Dashboard</title>
+
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Link to Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        header {
+            background-color: #5865f2;
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 10;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #5865f2;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #5865f2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #4752c4;
+        }
+
+        footer {
+            background-color: #5865f2;
+            padding: 1rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 10;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome, {{ user['username'] }}!</h1>
-    <form action="/update_config" method="post">
-        <h2>Welcome Configuration</h2>
-        <label>Welcome Message:</label>
-        <input type="text" name="welcome_message" value="{{ config['welcome_message'] }}">
-        <br>
-        <label>Goodbye Message:</label>
-        <input type="text" name="goodbye_message" value="{{ config['goodbye_message'] }}">
-        <br>
-        <label>Welcome Channel ID:</label>
-        <input type="text" name="welcome_channel" value="{{ config['welcome_channel'] }}">
-        <br>
-        <label>Goodbye Channel ID:</label>
-        <input type="text" name="goodbye_channel" value="{{ config['goodbye_channel'] }}">
-        <br>
-        <label>Welcome Role ID:</label>
-        <input type="text" name="welcome_role" value="{{ config['welcome_role'] }}">
-        <br>
-        <label>Welcome Image URL:</label>
-        <input type="text" name="welcome_image" value="{{ config['welcome_image'] }}">
-        <br>
-        <label>Embed Color (hex):</label>
-        <input type="text" name="embed_color" value="{{ config['embed_color'] }}">
-        <br>
-        <button type="submit">Update Configuration</button>
-    </form>
-    <a href="/logout">Logout</a>
+    <header>
+        <h1>Discord Bot Dashboard</h1>
+    </header>
+
+    <div class="container">
+        <h2>Configure Your Bot</h2>
+        <form id="bot-settings-form">
+            <label for="welcome-channel">Select Welcome Channel:</label>
+            <select id="welcome-channel" name="welcome-channel" required>
+                <option value="">Select a channel</option>
+                <option value="general">#general</option>
+                <option value="welcome">#welcome</option>
+                <option value="announcements">#announcements</option>
+                <option value="random">#random</option>
+                <!-- Add other channel options here -->
+            </select>
+
+            <label for="welcome-message">Welcome Message:</label>
+            <textarea id="welcome-message" name="welcome-message" rows="4" placeholder="Enter the welcome message here..." required></textarea>
+
+            <label for="goodbye-channel">Select Goodbye Channel:</label>
+            <select id="goodbye-channel" name="goodbye-channel" required>
+                <option value="">Select a channel</option>
+                <option value="general">#general</option>
+                <option value="goodbye">#goodbye</option>
+                <option value="farewell">#farewell</option>
+                <!-- Add other channel options here -->
+            </select>
+
+            <label for="goodbye-message">Goodbye Message:</label>
+            <textarea id="goodbye-message" name="goodbye-message" rows="4" placeholder="Enter the goodbye message here..." required></textarea>
+
+            <label for="role-assignment">Select Role to Assign:</label>
+            <select id="role-assignment" name="role-assignment">
+                <option value="">Select a role</option>
+                <option value="Member">Member</option>
+                <option value="Newbie">Newbie</option>
+                <option value="VIP">VIP</option>
+                <!-- Add other roles here -->
+            </select>
+
+            <button type="submit">Save Settings</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Bot Name. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('bot-settings-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const settings = Object.fromEntries(formData.entries());
+
+            console.log(settings); // For debugging; you can send this data to your server
+
+            // Replace the following line with an AJAX call to your backend to save the settings
+            alert('Settings saved successfully!');
+        });
+    </script>
 </body>
 </html>
+
