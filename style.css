@@ -1,72 +1,245 @@
-/* Reset some default styles */
-body, h1, h2, h3, p {
+/* Universal Styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e6ebf5 100%);
     color: #333;
+    overflow-x: hidden;
+    position: relative;
 }
 
+/* Header Section */
 header {
-    background-color: #7289da; /* Discord's primary color */
-    color: white;
+    background: linear-gradient(45deg, #7289da, #5865f2);
+    padding: 2rem;
     text-align: center;
-    padding: 50px 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
 }
 
 header h1 {
-    font-size: 3em;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    animation: fadeInDown 1s ease-out forwards;
 }
 
 header p {
-    font-size: 1.2em;
+    font-size: 1.3rem;
+    animation: fadeInUp 1.2s ease-out forwards;
 }
 
-#login-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 15px 30px;
-    background-color: #ffffff;
-    color: #7289da;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-#login-button:hover {
-    transform: scale(1.05);
-    background-color: #e0e0e0; /* Light gray */
-}
-
-section {
-    padding: 20px;
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.feature {
-    margin: 15px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    transition: transform 0.2s;
-}
-
-.feature:hover {
-    transform: scale(1.02);
-    border-color: #7289da; /* Change border color on hover */
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #7289da; /* Discord's primary color */
+.btn {
+    background-color: #7289da;
     color: white;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    display: inline-block;
+    animation: fadeIn 1.4s ease-out forwards;
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.08);
+    background-color: #99aab5;
+    box-shadow: 0 10px 20px rgba(114, 137, 218, 0.5);
+}
+
+.btn i {
+    margin-left: 8px;
+    animation: rotateIcon 1.5s infinite linear;
+}
+
+/* Bubbles Floating Animation */
+@keyframes floatBubble {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.bubble {
+    position: absolute;
+    background-color: rgba(114, 137, 218, 0.4);
+    border-radius: 50%;
+    animation: floatBubble 6s infinite ease-in-out;
+    z-index: 0;
+}
+
+.bubble:nth-child(1) {
+    width: 120px;
+    height: 120px;
+    top: 10%;
+    left: 10%;
+    animation-duration: 5s;
+}
+
+.bubble:nth-child(2) {
+    width: 80px;
+    height: 80px;
+    top: 30%;
+    left: 75%;
+    animation-duration: 7s;
+}
+
+.bubble:nth-child(3) {
+    width: 150px;
+    height: 150px;
+    bottom: 20%;
+    right: 5%;
+    animation-duration: 9s;
+}
+
+.bubble:nth-child(4) {
+    width: 50px;
+    height: 50px;
+    top: 60%;
+    left: 20%;
+    animation-duration: 4s;
+}
+
+.bubble:nth-child(5) {
+    width: 180px;
+    height: 180px;
+    bottom: 5%;
+    right: 30%;
+    animation-duration: 11s;
+}
+
+/* Sections Styling */
+section {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.2rem;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+section p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+    color: #555;
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* List Styles for Features */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 1.6s ease-out forwards;
+    color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ul li i {
+    margin-right: 10px;
+    color: #7289da;
+}
+
+/* Footer */
+footer {
+    background-color: #5865f2;
+    padding: 1.5rem;
+    text-align: center;
+    color: white;
+}
+
+footer p {
+    font-size: 0.9rem;
+    animation: fadeIn 1.2s ease-out forwards;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateIcon {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hover Effects */
+section h2:hover {
+    color: #7289da;
+    text-shadow: 2px 2px 6px rgba(114, 137, 218, 0.3);
+    transform: scale(1.05);
+}
+
+ul li:hover {
+    color: #5865f2;
+    transform: translateX(5px);
+    transition: all 0.3s ease;
+}
+
+/* Button hover effect */
+.btn:hover {
+    background-color: #99aab5;
+    transform: scale(1.08) translateY(-3px);
+    transition: all 0.3s ease;
 }
