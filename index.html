@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Discord Bot</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Discord Bot!</h1>
+        <p>Enhance your Discord experience with our powerful bot designed to make server management effortless and engaging!</p>
+        <a href="#" id="login-button">Login with Discord</a>
+    </header>
+    
+    <section id="features">
+        <h2>Features</h2>
+        <div class="feature">
+            <h3>🎉 Welcome Messages</h3>
+            <p>Automatically greet new members with customizable welcome messages in your chosen channel. Personalize your messages to make newcomers feel at home!</p>
+        </div>
+        <div class="feature">
+            <h3>👋 Goodbye Messages</h3>
+            <p>Send heartfelt farewell messages when members leave, ensuring they feel appreciated and missed. This feature can help maintain a positive community atmosphere!</p>
+        </div>
+        <div class="feature">
+            <h3>📊 Reputation System</h3>
+            <p>Encourage positive interactions by allowing users to give and receive reputation points. Track user engagement and promote a friendly environment!</p>
+        </div>
+        <div class="feature">
+            <h3>⚙️ Custom Commands</h3>
+            <p>Create and manage custom commands tailored to your server's needs, enhancing user engagement and interactivity.</p>
+        </div>
+        <div class="feature">
+            <h3>🔔 Notifications</h3>
+            <p>Stay updated with notifications for important events, making sure your community never misses out on key announcements!</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Our bot is designed to enhance community engagement, provide fun interactions, and automate server management. Join thousands of other servers using our bot to create a vibrant and welcoming environment!</p>
+        <h3>How to Use the Bot:</h3>
+        <ol>
+            <li>Click the "Login with Discord" button to authenticate.</li>
+            <li>Invite the bot to your server.</li>
+            <li>Configure the bot's settings through the command panel.</li>
+            <li>Enjoy a better-managed server experience!</li>
+        </ol>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Bot Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript to handle login link
+        document.getElementById('login-button').onclick = function() {
+            window.location.href = 'https://discord.com/oauth2/authorize?permissions=32776&client_id=1293599817964191784&redirect_uri=https%3A%2F%2Fyourwebsite.com%2Fcallback&response_type=code&scope=identify+email+openid';
+        };
+    </script>
+</body>
+</html>

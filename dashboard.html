@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ user['username'] }}!</h1>
+    <form action="/update_config" method="post">
+        <h2>Welcome Configuration</h2>
+        <label>Welcome Message:</label>
+        <input type="text" name="welcome_message" value="{{ config['welcome_message'] }}">
+        <br>
+        <label>Goodbye Message:</label>
+        <input type="text" name="goodbye_message" value="{{ config['goodbye_message'] }}">
+        <br>
+        <label>Welcome Channel ID:</label>
+        <input type="text" name="welcome_channel" value="{{ config['welcome_channel'] }}">
+        <br>
+        <label>Goodbye Channel ID:</label>
+        <input type="text" name="goodbye_channel" value="{{ config['goodbye_channel'] }}">
+        <br>
+        <label>Welcome Role ID:</label>
+        <input type="text" name="welcome_role" value="{{ config['welcome_role'] }}">
+        <br>
+        <label>Welcome Image URL:</label>
+        <input type="text" name="welcome_image" value="{{ config['welcome_image'] }}">
+        <br>
+        <label>Embed Color (hex):</label>
+        <input type="text" name="embed_color" value="{{ config['embed_color'] }}">
+        <br>
+        <button type="submit">Update Configuration</button>
+    </form>
+    <a href="/logout">Logout</a>
+</body>
+</html>
